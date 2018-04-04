@@ -3,33 +3,37 @@
 // 1. inmutabilidad - valores
 
 var a = [1, 2, 3, 4];
-//a[0] = 10; // no es funcional
+a[0] = 10; //No es funcional
 
-var b = a.map((x) => x * 2);
-console.log(a, b);
-
-// 2. funciones como parametros, funciones que regresan funciones
-// - reutilización de código
-var suma = function(a, b) {
+// 2. Funciones como parametros
+var suma = function (a, b) {
     return a + b;
 };
+console.log('Suma función');
+console.log(suma(2, 50));
 
-var suma2 = function(a) {
-    return function(b) {
+//funciones que retornan funciones
+
+var suma1 = function (a) {
+    return function (b) {
         return a + b;
-    }
+    };
 };
-var sumar10 = suma2(10);
-var sumar11 = suma2(11);
-
-var f = function(callback) {
-    // ejecución de una secuencia
-    if (typeof callback == 'function')
-        return callback()
-}
-
-// 3. en P.F siempre se debe de regresar un resultado unico
-// raiz cuadrada de 4 = 2, = -2 // no es funcional
+console.log('Función retorna función');
+console.log(suma1(1)(5));
 
 
-console.log(suma(2, 2), sumar10(7));
+var suma2 = suma1(50);
+console.log('Función retorna función 2');
+console.log(suma2(200));
+
+
+// 3. Retorna un resultado único
+// raiz cuadrada de 4 = 2, puede ser 2 o -2, no es funcional si no se tiene un único resultado
+
+
+
+
+
+
+

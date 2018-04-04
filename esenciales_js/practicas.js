@@ -1,27 +1,34 @@
-// Programación OO (POO)
-// ES6 class
+//Programación orientada a objetos
+//ES6 class
 
-var Objeto = function() {
+var Objeto = function(){
 
 }
 
-Objeto.prototype.Saludar = function(msg, callback) {
-    console.log("Saludo:", msg)
-    if (typeof callback == 'function') {
-        callback();
-    } else {
-        console.log("callback no es una función");
+Objeto.prototype.Saludar = function(msn, callback){
+    console.log("Hola señor: " + msn)
+    if(typeof callback == 'function'){
+        callback()
     }
+    else
+    {
+         console.log('Callback no es una función')
+    }
+
 }
 
-// instanciar
-var o = new Objeto()
-o.Saludar("Hola mundo", function() {
-    console.log("callback ejecutado");
+
+//Instancia del objeto
+var saludo = new Objeto()
+saludo.Saludar('Luis Miguel', function () {
+    console.log("Función ejecutada")
 })
-o.Saludar("hey...", 5)
-/*Objeto.prototype.Despedirse = function() {
-    console.log("Adios");
+
+saludo.Saludar('Pedro',5)
+
+Objeto.prototype.Despedirse = function (msn) {
+    console.log('Hasta luego: ' + msn)
 }
-o.Despedirse()
-*/
+
+saludo.Despedirse("Luis Hernandez")
+
